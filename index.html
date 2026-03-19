@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DYNE OPTIC - Инженерные решения премиум класса</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+           tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#FFD700',
+                            500: '#D4AF37',
+                            600: '#B8860B',
+                            700: '#996515'
+                        },
+                        dark: {
+                            900: '#000000',
+                            800: '#0a0a0a',
+                            700: '#111111',
+                            600: '#1a1a1a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gold-border {
+            border: 1px solid #D4AF37;
+        }
+        
+        .gold-bg {
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+            border-color: #D4AF37;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-padding {
+            padding: 5rem 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 6rem 2rem;
+            }
+        }
+        
+        .logo-placeholder {
+            width: 180px;
+            height: 250px;
+            border: 2px dashed #D4AF37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #D4AF37;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        #navbar-inner {
+    transition: height 0.3s ease;
+}
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark-900/95 backdrop-blur-md border-b border-dark-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-[220px]" id="navbar-inner">
+                <!-- LOGO PLACEHOLDER - ВСТАВЬТЕ СВОЙ ЛОГОТИП ЗДЕСЬ -->
+                           <div class="flex-shrink-0 flex items-center">
+                <!-- Вместо плейсхолдера вставлен тег img -->
+<img src="logo.PNG" alt="DYNE OPTIC Logo" 
+     class="h-[400px] w-auto object-contain">
+                <!-- Пояснение: 
+                     - class="h-12" задает фиксированную высоту 3rem (48px), чтобы лого не было слишком большим.
+                     - class="w-auto" сохраняет пропорции изображения.
+                     - class="object-contain" гарантирует, что картинка впишется в заданные размеры без обрезания.
+                     - Если логотип все еще кажется маленьким, увеличьте h-12 до h-14 или h-16.
+                -->
+            </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-gold-400 transition-colors text-sm uppercase tracking-wider">Главная</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-gold-400 transition-colors text-sm uppercase tracking-wider">О компании</a>
+                    <a href="#services" class="nav-link text-gray-300 hover:text-gold-400 transition-colors text-sm uppercase tracking-wider">Услуги</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-gold-400 transition-colors text-sm uppercase tracking-wider">Проекты</a>
+                    <a href="#contact" class="gold-bg text-black px-6 py-2 rounded-none font-semibold hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] transition-all text-sm uppercase tracking-wider">
+                        Связаться
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gold-400 hover:text-gold-500 focus:outline-none">
+                        <i data-lucide="menu" class="h-8 w-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-t border-dark-600">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block px-3 py-3 text-gray-300 hover:text-gold-400 hover:bg-dark-700 transition-colors text-sm uppercase">Главная</a>
+                <a href="#about" class="block px-3 py-3 text-gray-300 hover:text-gold-400 hover:bg-dark-700 transition-colors text-sm uppercase">О компании</a>
+                <a href="#services" class="block px-3 py-3 text-gray-300 hover:text-gold-400 hover:bg-dark-700 transition-colors text-sm uppercase">Услуги</a>
+                <a href="#projects" class="block px-3 py-3 text-gray-300 hover:text-gold-400 hover:bg-dark-700 transition-colors text-sm uppercase">Проекты</a>
+                <a href="#contact" class="block px-3 py-3 text-gold-400 font-semibold hover:bg-dark-700 transition-colors text-sm uppercase">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="http://static.photos/technology/1920x1080/1" alt="Industrial Background" class="w-full h-full object-cover opacity-60">
+            <div class="hero-overlay absolute inset-0"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in pt-20">
+            <div class="inline-block mb-6 px-4 py-1 border border-gold-500/50 rounded-none">
+                <span class="text-gold-400 text-sm uppercase tracking-[0.3em]">Инженерные решения премиум класса</span>
+            </div>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+                <span class="gold-gradient">ТОЧНОСТЬ</span><br>
+                <span class="text-white">БЕЗ КОМПРОМИССОВ</span>
+            </h1>
+            <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-400 font-light leading-relaxed">
+                Разработка и внедрение высокотехнологичных оптических систем для промышленности и науки
+            </p>
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#services" class="gold-bg text-black px-10 py-4 font-semibold hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all uppercase tracking-wider text-sm">
+                    Наши услуги
+                </a>
+                <a href="#contact" class="border border-gold-500 text-gold-400 px-10 py-4 font-semibold hover:bg-gold-500 hover:text-black transition-all uppercase tracking-wider text-sm">
+                    Консультация
+                </a>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i data-lucide="chevron-down" class="h-8 w-8 text-gold-400"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-gold-500"></div>
+                        <img src="http://static.photos/industry/800x600/42" alt="About Us" class="w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-gold-500"></div>
+                        
+                        <!-- Stats Overlay -->
+                        <div class="absolute bottom-8 left-8 bg-dark-900/90 border border-gold-500/30 p-6 backdrop-blur-sm">
+                            <div class="text-4xl font-bold gold-gradient mb-1">15+</div>
+                            <div class="text-gray-400 text-sm uppercase tracking-wider">Лет опыта</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-gold-400 text-sm uppercase tracking-[0.3em] mb-4">О компании</h2>
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-white">Инновации в каждой детали</h3>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Мы специализируемся на разработке и производстве прецизионных оптических систем для промышленности, научных исследований и оборонного комплекса.
+                    </p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                        Наша команда объединяет опытных инженеров и ученых, создающих решения мирового уровня с применением передовых технологий.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8 mb-8">
+                        <div class="border-l-2 border-gold-500 pl-4">
+                            <div class="text-3xl font-bold text-white mb-1">200+</div>
+                            <div class="text-gray-500 text-sm uppercase">Проектов</div>
+                        </div>
+                        <div class="border-l-2 border-gold-500 pl-4">
+                            <div class="text-3xl font-bold text-white mb-1">50+</div>
+                            <div class="text-gray-500 text-sm uppercase">Партнеров</div>
+                        </div>
+                    </div>
+                    
+                    <button class="group flex items-center gap-3 text-gold-400 hover:text-gold-500 transition-colors uppercase tracking-wider text-sm font-semibold">
+                        Подробнее о компании
+                        <i data-lucide="arrow-right" class="h-5 w-5 transform group-hover:translate-x-2 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-dark-900 relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-gold-400 text-sm uppercase tracking-[0.3em] mb-4">Наши услуги</h2>
+                <h3 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Комплексные решения</h3>
+                <div class="w-24 h-1 gold-bg mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
+                    <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
+                        <i data-lucide="scan" class="h-8 w-8 text-gold-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Оптическое сканирование</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        Высокоточное 3D сканирование и цифровизация объектов любой сложности
+                    </p>
+                    <a href="#" class="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-500 transition-colors flex items-center gap-2">
+                        Подробнее <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
+                    <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
+                        <i data-lucide="eye" class="h-8 w-8 text-gold-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Лазерные системы</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        Разработка и интеграция лазерных модулей для промышленной обработки
+                    </p>
+                    <a href="#" class="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-500 transition-colors flex items-center gap-2">
+                        Подробнее <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
+                    <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
+                        <i data-lucide="microscope" class="h-8 w-8 text-gold-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Прецизионная оптика</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        Производство оптических компонентов с микронной точностью
+                    </p>
+                    <a href="#" class="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-500 transition-colors flex items-center gap-2">
+                        Подробнее <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
+                    <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
+                        <i data-lucide="settings" class="h-8 w-8 text-gold-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Автоматизация</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        Системы машинного зрения для контроля качества и робототехники
+                    </p>
+                    <a href="#" class="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-500 transition-colors flex items-center gap-2">
+                        Подробнее <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
+                    <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
+                        <i data-lucide="shield" class="h-8 w-8 text-gold-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Защитные покрытия</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        Нанесение специальных оптических и защитных покрытий на изделия
+                    </p>
+                    <a href="#" class="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-500 transition-colors flex items-center gap-2">
+                        Подробнее <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
+                    <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
+                        <i data-lucide="cpu" class="h-8 w-8 text-gold-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">R&D разработки</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        Научно-исследовательские работы в области оптоэлектроники
+                    </p>
+                    <a href="#" class="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-500 transition-colors flex items-center gap-2">
+                        Подробнее <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-gold-400 text-sm uppercase tracking-[0.3em] mb-4">Портфолио</h2>
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold text-white">Реализованные проекты</h3>
+                </div>
+                <a href="#" class="mt-6 md:mt-0 text-gold-400 hover:text-gold-500 transition-colors uppercase tracking-wider text-sm font-semibold flex items-center gap-2">
+                    Все проекты <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="group relative overflow-hidden cursor-pointer">
+                    <img src="http://static.photos/technology/600x400/101" alt="Project 1" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <div class="text-gold-400 text-xs uppercase tracking-wider mb-2">Аэрокосмическая отрасль</div>
+                        <h4 class="text-xl font-bold text-white mb-2">Оптические сенсоры для спутников</h4>
+                        <p class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            Разработка высокочувствительной оптики для систем наблюдения
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="group relative overflow-hidden cursor-pointer">
+                    <img src="http://static.photos/medical/600x400/202" alt="Project 2" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <div class="text-gold-400 text-xs uppercase tracking-wider mb-2">Медицина</div>
+                        <h4 class="text-xl font-bold text-white mb-2">Лазерные хирургические системы</h4>
+                        <p class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            Прецизионное оборудование для микрохирургии
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="group relative overflow-hidden cursor-pointer">
+                    <img src="http://static.photos/industry/600x400/303" alt="Project 3" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <div class="text-gold-400 text-xs uppercase tracking-wider mb-2">Промышленность</div>
+                        <h4 class="text-xl font-bold text-white mb-2">Системы контроля качества</h4>
+                        <p class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            Автоматизированный визуальный контроль производства
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-dark-900 relative">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold-500/10 via-transparent to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-gold-400 text-sm uppercase tracking-[0.3em] mb-4">Контакты</h2>
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Обсудим ваш проект</h3>
+                    <p class="text-gray-400 text-lg mb-12">
+                        Оставьте заявку, и наши специалисты свяжутся с вами для детальной консультации
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 border border-gold-500/30 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="h-5 w-5 text-gold-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Адрес</h4>
+                                <p class="text-gray-400">г. Москва, ул. Промышленная, 15, БЦ "Технопарк"</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 border border-gold-500/30 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="phone" class="h-5 w-5 text-gold-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Телефон</h4>
+                                <p class="text-gray-400">+7 (495) 123-45-67</p>
+                                <p class="text-gray-400">+7 (495) 765-43-21</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 border border-gold-500/30 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="mail" class="h-5 w-5 text-gold-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Email</h4>
+                                <p class="text-gray-400">info@dyneoptic.ru</p>
+                                <p class="text-gray-400">sales@dyneoptic.ru</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-800 border border-dark-600 p-8 md:p-10">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-400 text-sm uppercase tracking-wider mb-2">Имя</label>
+                                <input type="text" class="w-full bg-dark-900 border border-dark-600 text-white px-4 py-3 focus:border-gold-500 focus:outline-none transition-colors" placeholder="Ваше имя">
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-sm uppercase tracking-wider mb-2">Телефон</label>
+                                <input type="tel" class="w-full bg-dark-900 border border-dark-600 text-white px-4 py-3 focus:border-gold-500 focus:outline-none transition-colors" placeholder="+7 (___) ___-__-__">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-400 text-sm uppercase tracking-wider mb-2">Email</label>
+                            <input type="email" class="w-full bg-dark-900 border border-dark-600 text-white px-4 py-3 focus:border-gold-500 focus:outline-none transition-colors" placeholder="your@email.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-400 text-sm uppercase tracking-wider mb-2">Сообщение</label>
+                            <textarea rows="4" class="w-full bg-dark-900 border border-dark-600 text-white px-4 py-3 focus:border-gold-500 focus:outline-none transition-colors resize-none" placeholder="Опишите ваш проект..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full gold-bg text-black py-4 font-semibold hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all uppercase tracking-wider text-sm">
+                            Отправить заявку
+                        </button>
+                        
+                        <p class="text-gray-500 text-xs text-center">
+                            Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-dark-600 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <!-- LOGO PLACEHOLDER FOOTER - ВСТАВЬТЕ ЛОГОТИП ЗДЕСЬ ТОЖЕ -->
+                    <div class="logo-placeholder mb-6 inline-flex">
+                        <span>ВАШ ЛОГО</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Ведущий разработчик оптических систем и высокотехнологичных решений для промышленности
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 border border-dark-600 flex items-center justify-center text-gray-400 hover:text-gold-400 hover:border-gold-500 transition-all">
+                            <i data-lucide="linkedin" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 border border-dark-600 flex items-center justify-center text-gray-400 hover:text-gold-400 hover:border-gold-500 transition-all">
+                            <i data-lucide="instagram" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 border border-dark-600 flex items-center justify-center text-gray-400 hover:text-gold-400 hover:border-gold-500 transition-all">
+                            <i data-lucide="youtube" class="h-5 w-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold uppercase tracking-wider mb-6">Разделы</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">О компании</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Услуги</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Проекты</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Новости</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white font-semibold uppercase tracking-wider mb-6">Услуги</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Оптическое сканирование</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Лазерные системы</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Прецизионная оптика</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">R&D разработки</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-semibold uppercase tracking-wider mb-6">Контакты</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="h-4 w-4 text-gold-400 mt-0.5"></i>
+                            <span>г. Москва, ул. Промышленная, 15</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="h-4 w-4 text-gold-400"></i>
+                            <span>+7 (495) 123-45-67</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="h-4 w-4 text-gold-400"></i>
+                            <span>info@dyneoptic.ru</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-dark-600 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2024 DYNE OPTIC. Все права защищены.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="#" class="text-gray-500 hover:text-gold-400 transition-colors">Политика конфиденциальности</a>
+                    <a href="#" class="text-gray-500 hover:text-gold-400 transition-colors">Условия использования</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Navbar scroll effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+                nav.classList.add('bg-dark-900/98');
+            } else {
+                nav.classList.remove('shadow-lg');
+                nav.classList.remove('bg-dark-900/98');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за заявку! Наш менеджер свяжется с вами в ближайшее время.');
+            this.reset();
+        });
+
+             (function() {
+    const navbarInner = document.getElementById('navbar-inner');
+    if (!navbarInner) return;
+
+    const LARGE_HEIGHT = 300;    // начальная высота (px)
+    const COMPACT_HEIGHT = 80;    // высота в сжатом состоянии (px)
+    const SCROLL_TRIGGER = 50;    // после скролла 50px начинаем сжимать
+
+    let isCompact = false;
+
+    function updateNavbarHeight() {
+        const scrollY = window.scrollY;
+        if (scrollY > SCROLL_TRIGGER && !isCompact) {
+            navbarInner.style.height = COMPACT_HEIGHT + 'px';
+            isCompact = true;
+        } else if (scrollY <= SCROLL_TRIGGER && isCompact) {
+            navbarInner.style.height = LARGE_HEIGHT + 'px';
+            isCompact = false;
+        }
+    }
+
+    // Оптимизация через requestAnimationFrame
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateNavbarHeight();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // Устанавливаем начальное состояние (если страница открыта не в самом верху)
+    updateNavbarHeight();
+})();
+    </script>
+</body>
+</html>
