@@ -19,6 +19,7 @@
   "homepage": "https://github.com/gelyas/AutoLight#readme",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "helmet": "^7.2.0"
   }
 }

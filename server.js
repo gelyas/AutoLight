@@ -2,6 +2,8 @@ const path = require('path');
 
 const express = require('express');
 
+const helmet = require('helmet');
+
 const dotenv = require('dotenv');
 
 
@@ -11,6 +13,10 @@ dotenv.config();
 
 
 const app = express();
+
+app.set('trust proxy', 1);
+
+app.use(helmet());
 
 const PORT = Number(process.env.PORT || 8080);
 
@@ -58,21 +64,13 @@ app.use((req, res, next) => {
 
 
 
-app.use(express.static(path.resolve(__dirname)));
+app.use(express.static(path.resolve(__dirname, 'public'), { dotfiles: 'deny' }));
 
 
 
 function getClientIp(req) {
 
-  const forwarded = req.headers['x-forwarded-for'];
-
-  if (typeof forwarded === 'string' && forwarded.length > 0) {
-
-    return forwarded.split(',')[0].trim();
-
-  }
-
-  return req.socket.remoteAddress || 'unknown';
+  return req.ip || req.socket.remoteAddress || 'unknown';
 
 }
 
