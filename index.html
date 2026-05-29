@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DYNE OPTIC - Инженерные решения премиум класса</title>
+    <title>Центр автосвета LIGHT POWER</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
@@ -122,9 +125,234 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+
+        .brand-logo-wrap {
+            overflow: visible;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .brand-logo-wrap--nav {
+            height: 180px;
+            width: 270px;
+        }
+
+        .brand-logo-wrap--nav .brand-logo {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .brand-logo-wrap--footer {
+            height: 280px;
+            width: 370px;
+            margin-bottom: 1.5rem;
+        }
+
+        .brand-logo-wrap--footer .brand-logo {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
         #navbar-inner {
-    transition: height 0.3s ease;
-}
+            transition: height 0.3s ease;
+        }
+
+        #navbar-inner.is-compact .brand-logo-wrap--nav {
+            height: 108px;
+            width: 210px;
+        }
+
+        .before-after--moyka-dvs {
+            aspect-ratio: 4 / 3;
+        }
+
+        .before-after--polirovka-far,
+        .before-after--ustanovka-linz,
+        .before-after--ustranenie-zapotevaniya {
+            aspect-ratio: 3 / 4;
+            max-width: 28rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .before-after--moyka-dvs img,
+        .before-after--polirovka-far img,
+        .before-after--ustanovka-linz img,
+        .before-after--ustranenie-zapotevaniya img {
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        .before-after--polirovka-far > img {
+            object-position: 50% 60%;
+        }
+
+        .before-after--polirovka-far .before-after-before img {
+            object-position: 50% 61%;
+            transform: scale(1.22);
+        }
+
+        .before-after--ustranenie-zapotevaniya .before-after-before img {
+            object-position: 50% 40%;
+            transform: scale(1.11);
+            transform-origin: center center;
+        }
+
+        .before-after--moyka-dvs > img {
+            object-position: 50% 56%;
+            transform: translateX(-2.3%);
+        }
+
+        .before-after--moyka-dvs .before-after-before img {
+            object-position: 20% 50%;
+        }
+
+        .before-after {
+            --position: 50%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            background-color: #0a0a0a;
+            cursor: ew-resize;
+            user-select: none;
+            touch-action: none;
+            aspect-ratio: 16 / 9;
+        }
+
+        .before-after img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        .before-after-before {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            clip-path: inset(0 calc(100% - var(--position)) 0 0);
+            z-index: 2;
+        }
+
+        .before-after-divider {
+            position: absolute;
+            left: var(--position);
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg, #FFD700 0%, #D4AF37 100%);
+            z-index: 3;
+            box-shadow: 0 0 16px rgba(212, 175, 55, 0.55);
+        }
+
+        .before-after-divider::after {
+            content: "↔";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 38px;
+            height: 38px;
+            border-radius: 999px;
+            background: #000;
+            border: 2px solid #D4AF37;
+            color: #D4AF37;
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .before-after-label {
+            position: absolute;
+            top: 1rem;
+            z-index: 4;
+            padding: 0.35rem 0.75rem;
+            background: rgba(0, 0, 0, 0.72);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #f8fafc;
+        }
+
+        .before-after-label-left {
+            left: 1rem;
+        }
+
+        .before-after-label-right {
+            right: 1rem;
+        }
+
+        .before-after-range {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            opacity: 0;
+            z-index: 5;
+            cursor: ew-resize;
+        }
+
+        .bot-trap {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .showcase-card {
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            background: #0a0a0a;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+            flex: 0 0 auto;
+            width: 280px;
+            scroll-snap-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .showcase-card {
+                width: auto;
+                flex: 1 1 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #navbar-inner {
+                height: 120px !important;
+            }
+
+            .brand-logo-wrap--nav {
+                height: 136px;
+                width: 210px;
+            }
+
+            .showcase-card {
+                width: 240px;
+            }
+        }
+
+        .contact-decor {
+            opacity: 0.12;
+            filter: grayscale(30%);
+        }
+
+        .icon-instagram {
+            display: block;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -132,19 +360,10 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-dark-900/95 backdrop-blur-md border-b border-dark-600">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-[220px]" id="navbar-inner">
-                <!-- LOGO PLACEHOLDER - ВСТАВЬТЕ СВОЙ ЛОГОТИП ЗДЕСЬ -->
-                           <div class="flex-shrink-0 flex items-center">
-                <!-- Вместо плейсхолдера вставлен тег img -->
-<img src="logo.PNG" alt="DYNE OPTIC Logo" 
-     class="h-[400px] w-auto object-contain">
-                <!-- Пояснение: 
-                     - class="h-12" задает фиксированную высоту 3rem (48px), чтобы лого не было слишком большим.
-                     - class="w-auto" сохраняет пропорции изображения.
-                     - class="object-contain" гарантирует, что картинка впишется в заданные размеры без обрезания.
-                     - Если логотип все еще кажется маленьким, увеличьте h-12 до h-14 или h-16.
-                -->
-            </div>
+            <div class="flex justify-between items-center h-[170px] md:h-[190px]" id="navbar-inner">
+                <a href="#home" class="brand-logo-wrap brand-logo-wrap--nav py-1" aria-label="LIGHT POWER — на главную">
+                    <img src="logo.PNG" alt="LIGHT POWER Logo" class="brand-logo">
+                </a>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
@@ -182,23 +401,23 @@
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-            <img src="http://static.photos/technology/1920x1080/1" alt="Industrial Background" class="w-full h-full object-cover opacity-60">
+            <img src="assets/decor/hero-mercedes.jpg" alt="Центр автосвета LIGHT POWER" class="w-full h-full object-cover opacity-60">
             <div class="hero-overlay absolute inset-0"></div>
         </div>
         
         <!-- Content -->
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in pt-20">
             <div class="inline-block mb-6 px-4 py-1 border border-gold-500/50 rounded-none">
-                <span class="text-gold-400 text-sm uppercase tracking-[0.3em]">Инженерные решения премиум класса</span>
+                <span class="text-gold-400 text-sm uppercase tracking-[0.3em]">Центр автосвета · Иркутск</span>
             </div>
             <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-                <span class="gold-gradient">ТОЧНОСТЬ</span><br>
-                <span class="text-white">БЕЗ КОМПРОМИССОВ</span>
+                <span class="gold-gradient">LIGHT</span><br>
+                <span class="text-white">POWER</span>
             </h1>
             <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-400 font-light leading-relaxed">
-                Разработка и внедрение высокотехнологичных оптических систем для промышленности и науки
+                Ремонт и тюнинг фар, установка линз, полировка и восстановление автомобильной оптики
             </p>
-            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center pb-16">
                 <a href="#services" class="gold-bg text-black px-10 py-4 font-semibold hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all uppercase tracking-wider text-sm">
                     Наши услуги
                 </a>
@@ -206,12 +425,12 @@
                     Консультация
                 </a>
             </div>
-            
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <i data-lucide="chevron-down" class="h-8 w-8 text-gold-400"></i>
-            </div>
         </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#about" class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce text-gold-400 hover:text-gold-300 transition-colors" aria-label="Прокрутить вниз">
+            <i data-lucide="chevron-down" class="h-8 w-8"></i>
+        </a>
     </section>
 
     <!-- About Section -->
@@ -221,42 +440,42 @@
                 <div class="order-2 lg:order-1">
                     <div class="relative">
                         <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-gold-500"></div>
-                        <img src="http://static.photos/industry/800x600/42" alt="About Us" class="w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        <img src="assets/decor/about-garage.jpg" alt="Сервис центр автосвета" class="w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700">
                         <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-gold-500"></div>
                         
                         <!-- Stats Overlay -->
-                        <div class="absolute bottom-8 left-8 bg-dark-900/90 border border-gold-500/30 p-6 backdrop-blur-sm">
-                            <div class="text-4xl font-bold gold-gradient mb-1">15+</div>
-                            <div class="text-gray-400 text-sm uppercase tracking-wider">Лет опыта</div>
+                        <div class="absolute bottom-8 left-16 md:left-20 bg-dark-900/90 border border-gold-500/30 p-6 backdrop-blur-sm">
+                            <div class="text-4xl font-bold gold-gradient mb-1">53+</div>
+                            <div class="text-gray-400 text-sm uppercase tracking-wider">Работ в альбоме</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="order-1 lg:order-2">
                     <h2 class="text-gold-400 text-sm uppercase tracking-[0.3em] mb-4">О компании</h2>
-                    <h3 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-white">Инновации в каждой детали</h3>
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-white">Свет, которому доверяют</h3>
                     <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                        Мы специализируемся на разработке и производстве прецизионных оптических систем для промышленности, научных исследований и оборонного комплекса.
+                        Центр автосвета LIGHT POWER — специализированный сервис по ремонту, тюнингу и восстановлению фар. Работаем с любыми марками автомобилей.
                     </p>
                     <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        Наша команда объединяет опытных инженеров и ученых, создающих решения мирового уровня с применением передовых технологий.
+                        Устанавливаем линзы, устраняем запотевания, полируем и защищаем оптику. Регулируем свет по ГОСТ. На все виды работ даем гарантию.
                     </p>
                     
                     <div class="grid grid-cols-2 gap-8 mb-8">
                         <div class="border-l-2 border-gold-500 pl-4">
-                            <div class="text-3xl font-bold text-white mb-1">200+</div>
-                            <div class="text-gray-500 text-sm uppercase">Проектов</div>
+                            <div class="text-3xl font-bold text-white mb-1">10+</div>
+                            <div class="text-gray-500 text-sm uppercase">Видов работ</div>
                         </div>
                         <div class="border-l-2 border-gold-500 pl-4">
-                            <div class="text-3xl font-bold text-white mb-1">50+</div>
-                            <div class="text-gray-500 text-sm uppercase">Партнеров</div>
+                            <div class="text-3xl font-bold text-white mb-1">100%</div>
+                            <div class="text-gray-500 text-sm uppercase">Фокус на оптике</div>
                         </div>
                     </div>
                     
-                    <button class="group flex items-center gap-3 text-gold-400 hover:text-gold-500 transition-colors uppercase tracking-wider text-sm font-semibold">
-                        Подробнее о компании
+                    <a href="#projects" class="group flex items-center gap-3 text-gold-400 hover:text-gold-500 transition-colors uppercase tracking-wider text-sm font-semibold">
+                        Смотреть наши работы
                         <i data-lucide="arrow-right" class="h-5 w-5 transform group-hover:translate-x-2 transition-transform"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -276,89 +495,197 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
                 <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
                     <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
-                        <i data-lucide="scan" class="h-8 w-8 text-gold-400"></i>
+                        <i data-lucide="lightbulb" class="h-8 w-8 text-gold-400"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Оптическое сканирование</h4>
-                    <p class="text-gray-400 leading-relaxed mb-4">
-                        Высокоточное 3D сканирование и цифровизация объектов любой сложности
-                    </p>
-                    <a href="#" class="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-500 transition-colors flex items-center gap-2">
-                        Подробнее <i data-lucide="chevron-right" class="h-4 w-4"></i>
-                    </a>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Ремонт и тюнинг фар</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">Восстановление и модернизация штатной и нештатной оптики</p>
                 </div>
-                
-                <!-- Service Card 2 -->
                 <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
                     <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
-                        <i data-lucide="eye" class="h-8 w-8 text-gold-400"></i>
+                        <i data-lucide="aperture" class="h-8 w-8 text-gold-400"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Лазерные системы</h4>
-                    <p class="text-gray-400 leading-relaxed mb-4">
-                        Разработка и интеграция лазерных модулей для промышленной обработки
-                    </p>
-                    <a href="#" class="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-500 transition-colors flex items-center gap-2">
-                        Подробнее <i data-lucide="chevron-right" class="h-4 w-4"></i>
-                    </a>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Установка линз</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">Замена штатных линз на Bi-LED и установка в рефлекторную фару</p>
                 </div>
-                
-                <!-- Service Card 3 -->
                 <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
                     <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
-                        <i data-lucide="microscope" class="h-8 w-8 text-gold-400"></i>
+                        <i data-lucide="sparkles" class="h-8 w-8 text-gold-400"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Прецизионная оптика</h4>
-                    <p class="text-gray-400 leading-relaxed mb-4">
-                        Производство оптических компонентов с микронной точностью
-                    </p>
-                    <a href="#" class="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-500 transition-colors flex items-center gap-2">
-                        Подробнее <i data-lucide="chevron-right" class="h-4 w-4"></i>
-                    </a>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Полировка фар</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">Удаление помутнения, удаление микротрещин и восстановление прозрачности стёкол фар до заводского состояния</p>
                 </div>
-                
-                <!-- Service Card 4 -->
                 <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
                     <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
-                        <i data-lucide="settings" class="h-8 w-8 text-gold-400"></i>
+                        <i data-lucide="droplets" class="h-8 w-8 text-gold-400"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Автоматизация</h4>
-                    <p class="text-gray-400 leading-relaxed mb-4">
-                        Системы машинного зрения для контроля качества и робототехники
-                    </p>
-                    <a href="#" class="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-500 transition-colors flex items-center gap-2">
-                        Подробнее <i data-lucide="chevron-right" class="h-4 w-4"></i>
-                    </a>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Устранение запотеваний</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">Герметизация и восстановление корпусов фар</p>
                 </div>
-                
-                <!-- Service Card 5 -->
+                <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
+                    <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
+                        <i data-lucide="sun" class="h-8 w-8 text-gold-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">LED и ДХО</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">Замена ламп, установка дневных ходовых огней и ПТФ</p>
+                </div>
                 <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
                     <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
                         <i data-lucide="shield" class="h-8 w-8 text-gold-400"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Защитные покрытия</h4>
-                    <p class="text-gray-400 leading-relaxed mb-4">
-                        Нанесение специальных оптических и защитных покрытий на изделия
-                    </p>
-                    <a href="#" class="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-500 transition-colors flex items-center gap-2">
-                        Подробнее <i data-lucide="chevron-right" class="h-4 w-4"></i>
-                    </a>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Защита фар</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">Бронирование плёнкой, замена стёкол, фар и корпусов</p>
                 </div>
-                
-                <!-- Service Card 6 -->
                 <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
                     <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
-                        <i data-lucide="cpu" class="h-8 w-8 text-gold-400"></i>
+                        <i data-lucide="paint-bucket" class="h-8 w-8 text-gold-400"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">R&D разработки</h4>
-                    <p class="text-gray-400 leading-relaxed mb-4">
-                        Научно-исследовательские работы в области оптоэлектроники
-                    </p>
-                    <a href="#" class="text-gold-400 text-sm uppercase tracking-wider hover:text-gold-500 transition-colors flex items-center gap-2">
-                        Подробнее <i data-lucide="chevron-right" class="h-4 w-4"></i>
-                    </a>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Полировка кузова</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">Устранение царапин, восстановление блеска и защита лакокрасочного покрытия</p>
                 </div>
+                <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
+                    <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
+                        <i data-lucide="volume-2" class="h-8 w-8 text-gold-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Шумоизоляция</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">Комплексная шумо- и виброизоляция салона и дверей</p>
+                </div>
+                <div class="card-hover bg-dark-800 border border-dark-600 p-8 group">
+                    <div class="w-16 h-16 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors">
+                        <i data-lucide="sparkle" class="h-8 w-8 text-gold-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 uppercase tracking-wider">Хим. чистка</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4">Глубокая химическая чистка салона, обивки и ковров</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Strip -->
+    <section id="showcase-strip" class="py-12 md:py-16 bg-dark-800 border-y border-dark-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-gold-400 text-sm uppercase tracking-[0.3em] mb-3">Наш сервис</p>
+            <h3 class="text-center font-serif text-2xl md:text-3xl font-bold text-white mb-2">Центр автосвета · Иркутск</h3>
+            <p class="text-center text-gray-400 mb-10">
+                <a href="tel:+79247184218" class="hover:text-gold-400 transition-colors">89247184218</a>
+                ·
+                <a href="mailto:Lightpower38@mail.ru" class="hover:text-gold-400 transition-colors">Lightpower38@mail.ru</a>
+                ·
+                <a href="https://www.instagram.com/Light_power38/" target="_blank" rel="noopener noreferrer" class="hover:text-gold-400 transition-colors">@Light_power38</a>
+            </p>
+            <div class="flex gap-5 overflow-x-auto pb-4 md:pb-0 md:overflow-visible md:grid md:grid-cols-3 md:gap-6 scroll-smooth snap-x snap-mandatory">
+                <div class="showcase-card overflow-hidden rotate-[-2deg] md:rotate-[-2deg]">
+                    <img src="assets/decor/hero-mercedes.jpg" alt="Фасад центра автосвета" class="w-full h-44 md:h-52 object-cover" loading="lazy">
+                </div>
+                <div class="showcase-card overflow-hidden rotate-[1deg]">
+                    <img src="assets/decor/about-garage.jpg" alt="Бокс сервиса" class="w-full h-44 md:h-52 object-cover" style="object-position: center 70%;" loading="lazy">
+                </div>
+                <div class="showcase-card overflow-hidden rotate-[-1deg]">
+                    <img src="assets/decor/client-zone.jpg" alt="Клиентская зона" class="w-full h-44 md:h-52 object-cover" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before / After Comparison -->
+    <section id="comparison" class="section-padding bg-dark-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-gold-400 text-sm uppercase tracking-[0.3em] mb-4">До / После</h2>
+                <h3 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Визуальное сравнение результата</h3>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    Перемещайте ползунок, чтобы увидеть разницу до и после наших работ с фарами и оптикой.
+                </p>
+            </div>
+
+            <div class="space-y-10">
+                <div>
+                    <h4 class="text-center text-gold-400 uppercase tracking-wider text-sm mb-4">Полировка фар</h4>
+                    <div class="before-after before-after--polirovka-far max-w-5xl mx-auto" data-compare>
+                        <img src="assets/compare/polirovka-far/after.jpg" alt="После полировки фар">
+                        <div class="before-after-before">
+                            <img src="assets/compare/polirovka-far/before.jpg" alt="До полировки фар">
+                        </div>
+                        <div class="before-after-divider"></div>
+                        <span class="before-after-label before-after-label-left">До</span>
+                        <span class="before-after-label before-after-label-right">После</span>
+                        <input class="before-after-range" type="range" min="0" max="100" value="50" aria-label="Сравнение: полировка фар">
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-center text-gold-400 uppercase tracking-wider text-sm mb-4">Установка линз</h4>
+                    <div class="before-after before-after--ustanovka-linz max-w-5xl mx-auto" data-compare>
+                        <img src="assets/compare/ustanovka-linz/after.jpg" alt="После установки линз">
+                        <div class="before-after-before">
+                            <img src="assets/compare/ustanovka-linz/before.jpg" alt="До установки линз">
+                        </div>
+                        <div class="before-after-divider"></div>
+                        <span class="before-after-label before-after-label-left">До</span>
+                        <span class="before-after-label before-after-label-right">После</span>
+                        <input class="before-after-range" type="range" min="0" max="100" value="50" aria-label="Сравнение: установка линз">
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-center text-gold-400 uppercase tracking-wider text-sm mb-4">Устранение запотеваний</h4>
+                    <div class="before-after before-after--ustranenie-zapotevaniya max-w-5xl mx-auto" data-compare>
+                        <img src="assets/compare/ustranenie-zapotevaniya/after.jpg" alt="После устранения запотевания">
+                        <div class="before-after-before">
+                            <img src="assets/compare/ustranenie-zapotevaniya/before.jpg" alt="До устранения запотевания">
+                        </div>
+                        <div class="before-after-divider"></div>
+                        <span class="before-after-label before-after-label-left">До</span>
+                        <span class="before-after-label before-after-label-right">После</span>
+                        <input class="before-after-range" type="range" min="0" max="100" value="50" aria-label="Сравнение: устранение запотеваний">
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-center text-gold-400 uppercase tracking-wider text-sm mb-4">Мойка ДВС</h4>
+                    <div class="before-after before-after--moyka-dvs max-w-5xl mx-auto" data-compare>
+                        <img src="assets/compare/moyka-dvs/after.jpg" alt="После мойки ДВС">
+                        <div class="before-after-before">
+                            <img src="assets/compare/moyka-dvs/before.jpg" alt="До мойки ДВС">
+                        </div>
+                        <div class="before-after-divider"></div>
+                        <span class="before-after-label before-after-label-left">До</span>
+                        <span class="before-after-label before-after-label-right">После</span>
+                        <input class="before-after-range" type="range" min="0" max="100" value="50" aria-label="Сравнение: мойка ДВС">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16" id="other-results">
+                <h4 class="text-center font-serif text-2xl font-bold text-white mb-3">Другие результаты</h4>
+                <p class="text-center text-gray-500 text-sm mb-8">Нажмите на фото, чтобы открыть в полном размере</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                    <figure class="result-photo border border-gold-500/30 overflow-hidden bg-dark-800 cursor-pointer group" data-result-src="assets/compare/singles/zamena-ptf.jpg" data-result-caption="Замена ПТФ">
+                        <img src="assets/compare/singles/zamena-ptf.jpg" alt="Замена ПТФ" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <figcaption class="p-4 text-center text-gray-300 text-sm uppercase tracking-wider">Замена ПТФ</figcaption>
+                    </figure>
+                    <figure class="result-photo border border-gold-500/30 overflow-hidden bg-dark-800 cursor-pointer group" data-result-src="assets/compare/singles/ustanovka-dho.jpg" data-result-caption="Установка ДХО">
+                        <img src="assets/compare/singles/ustanovka-dho.jpg" alt="Установка ДХО" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <figcaption class="p-4 text-center text-gray-300 text-sm uppercase tracking-wider">Установка ДХО</figcaption>
+                    </figure>
+                    <figure class="result-photo border border-gold-500/30 overflow-hidden bg-dark-800 cursor-pointer group" data-result-src="assets/compare/singles/okleika-brony-plenku.jpg" data-result-caption="Оклейка в бронирующую плёнку">
+                        <img src="assets/compare/singles/okleika-brony-plenku.jpg" alt="Оклейка в бронирующую плёнку" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <figcaption class="p-4 text-center text-gray-300 text-sm uppercase tracking-wider">Оклейка в бронирующую плёнку</figcaption>
+                    </figure>
+                    <figure class="result-photo border border-gold-500/30 overflow-hidden bg-dark-800 cursor-pointer group" data-result-src="assets/compare/singles/shumoizolyatsiya.jpg" data-result-caption="Шумоизоляция">
+                        <img src="assets/compare/singles/shumoizolyatsiya.jpg" alt="Шумоизоляция" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <figcaption class="p-4 text-center text-gray-300 text-sm uppercase tracking-wider">Шумоизоляция</figcaption>
+                    </figure>
+                    <figure class="result-photo border border-gold-500/30 overflow-hidden bg-dark-800 cursor-pointer group sm:col-span-2" data-result-src="assets/compare/singles/regulirovka-gost.jpg" data-result-caption="Регулировка фар по ГОСТ">
+                        <img src="assets/compare/singles/regulirovka-gost.jpg" alt="Регулировка фар по ГОСТ" class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <figcaption class="p-4 text-center text-gray-300 text-sm uppercase tracking-wider">Регулировка фар по ГОСТ</figcaption>
+                    </figure>
+                </div>
+                <figure class="result-photo mt-6 max-w-4xl mx-auto border border-gold-500/30 overflow-hidden bg-dark-800 cursor-pointer group" data-result-src="assets/compare/singles/primer-sveta.jpg" data-result-caption="Пример света фар после работ">
+                    <img src="assets/compare/singles/primer-sveta.jpg" alt="Пример света фар после работ" class="w-full max-h-[520px] object-cover group-hover:scale-[1.02] transition-transform duration-500" loading="lazy">
+                    <figcaption class="p-4 text-center text-gray-300 text-sm uppercase tracking-wider">Пример света фар после работ</figcaption>
+                </figure>
             </div>
         </div>
     </section>
@@ -371,57 +698,31 @@
                     <h2 class="text-gold-400 text-sm uppercase tracking-[0.3em] mb-4">Портфолио</h2>
                     <h3 class="font-serif text-4xl md:text-5xl font-bold text-white">Реализованные проекты</h3>
                 </div>
-                <a href="#" class="mt-6 md:mt-0 text-gold-400 hover:text-gold-500 transition-colors uppercase tracking-wider text-sm font-semibold flex items-center gap-2">
-                    Все проекты <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                <a href="album.html?project=nashi-raboty" class="mt-6 md:mt-0 text-gold-400 hover:text-gold-500 transition-colors uppercase tracking-wider text-sm font-semibold flex items-center gap-2">
+                    Все фото <i data-lucide="arrow-right" class="h-4 w-4"></i>
                 </a>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Project 1 -->
-                <div class="group relative overflow-hidden cursor-pointer">
-                    <img src="http://static.photos/technology/600x400/101" alt="Project 1" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                <a href="album.html?project=nashi-raboty" class="group relative overflow-hidden cursor-pointer block md:col-span-2 lg:col-span-1 lg:max-w-xl lg:mx-auto">
+                    <img src="assets/projects/nashi-raboty/cover.jpg" alt="Наши работы" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <div class="text-gold-400 text-xs uppercase tracking-wider mb-2">Аэрокосмическая отрасль</div>
-                        <h4 class="text-xl font-bold text-white mb-2">Оптические сенсоры для спутников</h4>
+                        <div class="text-gold-400 text-xs uppercase tracking-wider mb-2">Центр автосвета</div>
+                        <h4 class="text-xl font-bold text-white mb-2">Наши работы</h4>
                         <p class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            Разработка высокочувствительной оптики для систем наблюдения
+                            53 фото выполненных работ по фарам и оптике
                         </p>
                     </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="group relative overflow-hidden cursor-pointer">
-                    <img src="http://static.photos/medical/600x400/202" alt="Project 2" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <div class="text-gold-400 text-xs uppercase tracking-wider mb-2">Медицина</div>
-                        <h4 class="text-xl font-bold text-white mb-2">Лазерные хирургические системы</h4>
-                        <p class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            Прецизионное оборудование для микрохирургии
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="group relative overflow-hidden cursor-pointer">
-                    <img src="http://static.photos/industry/600x400/303" alt="Project 3" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6">
-                        <div class="text-gold-400 text-xs uppercase tracking-wider mb-2">Промышленность</div>
-                        <h4 class="text-xl font-bold text-white mb-2">Системы контроля качества</h4>
-                        <p class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            Автоматизированный визуальный контроль производства
-                        </p>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding bg-dark-900 relative">
+    <section id="contact" class="section-padding bg-dark-900 relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold-500/10 via-transparent to-transparent"></div>
+        <img src="assets/decor/contact-vertical.jpg" alt="" class="contact-decor absolute right-0 top-1/2 -translate-y-1/2 w-1/3 max-w-md h-full object-cover pointer-events-none hidden lg:block" aria-hidden="true">
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -429,7 +730,7 @@
                     <h2 class="text-gold-400 text-sm uppercase tracking-[0.3em] mb-4">Контакты</h2>
                     <h3 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Обсудим ваш проект</h3>
                     <p class="text-gray-400 text-lg mb-12">
-                        Оставьте заявку, и наши специалисты свяжутся с вами для детальной консультации
+                        Оставьте заявку и мы с вами свяжемся для бесплатной консультации
                     </p>
                     
                     <div class="space-y-6">
@@ -439,7 +740,9 @@
                             </div>
                             <div>
                                 <h4 class="text-white font-semibold mb-1">Адрес</h4>
-                                <p class="text-gray-400">г. Москва, ул. Промышленная, 15, БЦ "Технопарк"</p>
+                                <p class="text-gray-400">
+                                    <a href="https://2gis.ru/irkutsk/search/%D0%9C%D0%B0%D0%B9%D1%81%D0%BA%D0%B0%D1%8F%201" target="_blank" rel="noopener noreferrer" class="hover:text-gold-400 transition-colors">Майская 1, Иркутск</a>
+                                </p>
                             </div>
                         </div>
                         
@@ -449,8 +752,7 @@
                             </div>
                             <div>
                                 <h4 class="text-white font-semibold mb-1">Телефон</h4>
-                                <p class="text-gray-400">+7 (495) 123-45-67</p>
-                                <p class="text-gray-400">+7 (495) 765-43-21</p>
+                                <p class="text-gray-400"><a href="tel:+79247184218" class="hover:text-gold-400 transition-colors">89247184218</a></p>
                             </div>
                         </div>
                         
@@ -460,39 +762,57 @@
                             </div>
                             <div>
                                 <h4 class="text-white font-semibold mb-1">Email</h4>
-                                <p class="text-gray-400">info@dyneoptic.ru</p>
-                                <p class="text-gray-400">sales@dyneoptic.ru</p>
+                                <p class="text-gray-400"><a href="mailto:Lightpower38@mail.ru" class="hover:text-gold-400 transition-colors">Lightpower38@mail.ru</a></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 border border-gold-500/30 flex items-center justify-center flex-shrink-0">
+                                <svg class="icon-instagram h-5 w-5 text-gold-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 1-2.881 0 1.44 1.44 0 0 1 2.881 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Instagram</h4>
+                                <p class="text-gray-400"><a href="https://www.instagram.com/Light_power38/" target="_blank" rel="noopener noreferrer" class="hover:text-gold-400 transition-colors">@Light_power38</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="bg-dark-800 border border-dark-600 p-8 md:p-10">
-                    <form class="space-y-6">
+                    <form id="lead-form" class="space-y-6" novalidate>
+                        <div class="bot-trap" aria-hidden="true">
+                            <label for="website">Ваш сайт</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-gray-400 text-sm uppercase tracking-wider mb-2">Имя</label>
-                                <input type="text" class="w-full bg-dark-900 border border-dark-600 text-white px-4 py-3 focus:border-gold-500 focus:outline-none transition-colors" placeholder="Ваше имя">
+                                <label for="lead-name" class="block text-gray-400 text-sm uppercase tracking-wider mb-2">Имя</label>
+                                <input id="lead-name" name="name" type="text" minlength="2" maxlength="60" required class="w-full bg-dark-900 border border-dark-600 text-white px-4 py-3 focus:border-gold-500 focus:outline-none transition-colors" placeholder="Ваше имя">
                             </div>
                             <div>
-                                <label class="block text-gray-400 text-sm uppercase tracking-wider mb-2">Телефон</label>
-                                <input type="tel" class="w-full bg-dark-900 border border-dark-600 text-white px-4 py-3 focus:border-gold-500 focus:outline-none transition-colors" placeholder="+7 (___) ___-__-__">
+                                <label for="lead-phone" class="block text-gray-400 text-sm uppercase tracking-wider mb-2">Телефон</label>
+                                <input id="lead-phone" name="phone" type="tel" minlength="10" maxlength="25" required class="w-full bg-dark-900 border border-dark-600 text-white px-4 py-3 focus:border-gold-500 focus:outline-none transition-colors" placeholder="+7 (___) ___-__-__">
                             </div>
                         </div>
                         
                         <div>
-                            <label class="block text-gray-400 text-sm uppercase tracking-wider mb-2">Email</label>
-                            <input type="email" class="w-full bg-dark-900 border border-dark-600 text-white px-4 py-3 focus:border-gold-500 focus:outline-none transition-colors" placeholder="your@email.com">
+                            <label for="lead-email" class="block text-gray-400 text-sm uppercase tracking-wider mb-2">Email</label>
+                            <input id="lead-email" name="email" type="email" maxlength="120" required class="w-full bg-dark-900 border border-dark-600 text-white px-4 py-3 focus:border-gold-500 focus:outline-none transition-colors" placeholder="your@email.com">
                         </div>
                         
                         <div>
-                            <label class="block text-gray-400 text-sm uppercase tracking-wider mb-2">Сообщение</label>
-                            <textarea rows="4" class="w-full bg-dark-900 border border-dark-600 text-white px-4 py-3 focus:border-gold-500 focus:outline-none transition-colors resize-none" placeholder="Опишите ваш проект..."></textarea>
+                            <label for="lead-message" class="block text-gray-400 text-sm uppercase tracking-wider mb-2">Сообщение</label>
+                            <textarea id="lead-message" name="message" rows="4" minlength="10" maxlength="1000" required class="w-full bg-dark-900 border border-dark-600 text-white px-4 py-3 focus:border-gold-500 focus:outline-none transition-colors resize-none" placeholder="Напишите марку и год выпуска вашего автомобиля"></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full gold-bg text-black py-4 font-semibold hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all uppercase tracking-wider text-sm">
+                        <button id="lead-submit-btn" type="submit" class="w-full gold-bg text-black py-4 font-semibold hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all uppercase tracking-wider text-sm disabled:opacity-60 disabled:cursor-not-allowed">
                             Отправить заявку
                         </button>
+
+                        <p id="lead-form-status" class="text-sm text-gray-400 text-center min-h-[1.25rem]" aria-live="polite"></p>
                         
                         <p class="text-gray-500 text-xs text-center">
                             Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
@@ -503,28 +823,33 @@
         </div>
     </section>
 
+    <div id="results-lightbox" class="fixed inset-0 bg-black/90 z-50 hidden" aria-hidden="true">
+        <button id="results-lightbox-close" type="button" class="absolute top-5 right-5 w-11 h-11 border border-gold-500/70 text-gold-400 hover:text-gold-300 text-2xl leading-none" aria-label="Закрыть">×</button>
+        <div class="h-full w-full flex items-center justify-center px-4 py-16">
+            <figure class="max-w-6xl w-full">
+                <img id="results-lightbox-image" src="" alt="" class="w-full max-h-[85vh] object-contain">
+                <figcaption id="results-lightbox-caption" class="text-center text-neutral-300 mt-4 text-sm uppercase tracking-wider"></figcaption>
+            </figure>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-dark-900 border-t border-dark-600 pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <!-- Company Info -->
                 <div>
-                    <!-- LOGO PLACEHOLDER FOOTER - ВСТАВЬТЕ ЛОГОТИП ЗДЕСЬ ТОЖЕ -->
-                    <div class="logo-placeholder mb-6 inline-flex">
-                        <span>ВАШ ЛОГО</span>
-                    </div>
+                    <a href="#home" class="brand-logo-wrap brand-logo-wrap--footer" aria-label="LIGHT POWER — на главную">
+                        <img src="logo.PNG" alt="LIGHT POWER" class="brand-logo">
+                    </a>
                     <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        Ведущий разработчик оптических систем и высокотехнологичных решений для промышленности
+                        Центр автосвета — ремонт, тюнинг и восстановление автомобильной оптики в Иркутске
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 border border-dark-600 flex items-center justify-center text-gray-400 hover:text-gold-400 hover:border-gold-500 transition-all">
-                            <i data-lucide="linkedin" class="h-5 w-5"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 border border-dark-600 flex items-center justify-center text-gray-400 hover:text-gold-400 hover:border-gold-500 transition-all">
-                            <i data-lucide="instagram" class="h-5 w-5"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 border border-dark-600 flex items-center justify-center text-gray-400 hover:text-gold-400 hover:border-gold-500 transition-all">
-                            <i data-lucide="youtube" class="h-5 w-5"></i>
+                        <a href="https://www.instagram.com/Light_power38/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-dark-600 flex items-center justify-center text-gray-400 hover:text-gold-400 hover:border-gold-500 transition-all" aria-label="Instagram @Light_power38">
+                            <svg class="icon-instagram h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 1-2.881 0 1.44 1.44 0 0 1 2.881 0z"/>
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -536,7 +861,7 @@
                         <li><a href="#about" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">О компании</a></li>
                         <li><a href="#services" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Услуги</a></li>
                         <li><a href="#projects" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Проекты</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Новости</a></li>
+                        <li><a href="#comparison" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">До / После</a></li>
                         <li><a href="#contact" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Контакты</a></li>
                     </ul>
                 </div>
@@ -545,10 +870,10 @@
                 <div>
                     <h4 class="text-white font-semibold uppercase tracking-wider mb-6">Услуги</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Оптическое сканирование</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Лазерные системы</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Прецизионная оптика</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">R&D разработки</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Ремонт фар</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Установка линз</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">Полировка фар</a></li>
+                        <li><a href="#comparison" class="text-gray-400 hover:text-gold-400 transition-colors text-sm">До / После</a></li>
                     </ul>
                 </div>
                 
@@ -558,22 +883,26 @@
                     <ul class="space-y-3 text-gray-400 text-sm">
                         <li class="flex items-start gap-3">
                             <i data-lucide="map-pin" class="h-4 w-4 text-gold-400 mt-0.5"></i>
-                            <span>г. Москва, ул. Промышленная, 15</span>
+                            <a href="https://2gis.ru/irkutsk/search/%D0%9C%D0%B0%D0%B9%D1%81%D0%BA%D0%B0%D1%8F%201" target="_blank" rel="noopener noreferrer" class="hover:text-gold-400 transition-colors">Майская 1, Иркутск</a>
                         </li>
                         <li class="flex items-center gap-3">
                             <i data-lucide="phone" class="h-4 w-4 text-gold-400"></i>
-                            <span>+7 (495) 123-45-67</span>
+                            <span><a href="tel:+79247184218" class="hover:text-gold-400 transition-colors">89247184218</a></span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i data-lucide="mail" class="h-4 w-4 text-gold-400"></i>
-                            <span>info@dyneoptic.ru</span>
+                            <span><a href="mailto:Lightpower38@mail.ru" class="hover:text-gold-400 transition-colors">Lightpower38@mail.ru</a></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="instagram" class="h-4 w-4 text-gold-400"></i>
+                            <span><a href="https://www.instagram.com/Light_power38/" target="_blank" rel="noopener noreferrer" class="hover:text-gold-400 transition-colors">@Light_power38</a></span>
                         </li>
                     </ul>
                 </div>
             </div>
             
             <div class="border-t border-dark-600 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">© 2024 DYNE OPTIC. Все права защищены.</p>
+                <p class="text-gray-500 text-sm">© 2026 LIGHT POWER. Все права защищены.</p>
                 <div class="flex gap-6 text-sm">
                     <a href="#" class="text-gray-500 hover:text-gold-400 transition-colors">Политика конфиденциальности</a>
                     <a href="#" class="text-gray-500 hover:text-gold-400 transition-colors">Условия использования</a>
@@ -628,19 +957,230 @@
             });
         });
         
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Спасибо за заявку! Наш менеджер свяжется с вами в ближайшее время.');
-            this.reset();
-        });
+        // Form anti-spam handler (frontend pre-protection)
+        const leadForm = document.getElementById('lead-form');
+        const leadSubmitBtn = document.getElementById('lead-submit-btn');
+        const leadStatus = document.getElementById('lead-form-status');
+        const leadHoneypot = document.getElementById('website');
+        const leadName = document.getElementById('lead-name');
+        const leadPhone = document.getElementById('lead-phone');
+        const leadEmail = document.getElementById('lead-email');
+        const leadMessage = document.getElementById('lead-message');
+
+        const COOLDOWN_MS = 30000;
+        const MIN_FILL_MS = 3500;
+        const LAST_SUBMIT_KEY = 'leadFormLastSubmitAt';
+        function collectLeadSourceMeta() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                pageUrl: window.location.href,
+                pageTitle: document.title,
+                pagePath: window.location.pathname + window.location.search + window.location.hash,
+                referrer: document.referrer || '',
+                utmSource: params.get('utm_source') || '',
+                utmMedium: params.get('utm_medium') || '',
+                utmCampaign: params.get('utm_campaign') || ''
+            };
+        }
+
+        const LEAD_ENDPOINT = '/api/lead';
+        const SUBMIT_BUTTON_TEXT = 'Отправить заявку';
+        const SUBMITTING_TEXT = 'Отправка...';
+        let leadFormStartedAt = Date.now();
+        let cooldownIntervalId = null;
+        let isSendingLead = false;
+
+        function setLeadStatus(message, isError) {
+            if (!leadStatus) return;
+            leadStatus.textContent = message;
+            leadStatus.classList.remove('text-red-400', 'text-emerald-400', 'text-gray-400');
+            leadStatus.classList.add(isError ? 'text-red-400' : 'text-emerald-400');
+        }
+
+        function getLastSubmitAt() {
+            try {
+                return Number(localStorage.getItem(LAST_SUBMIT_KEY) || 0);
+            } catch (_error) {
+                return 0;
+            }
+        }
+
+        function setLastSubmitAt(value) {
+            try {
+                localStorage.setItem(LAST_SUBMIT_KEY, String(value));
+            } catch (_error) {
+                // In restricted mode localStorage may be unavailable.
+            }
+        }
+
+        function getCooldownRemainingMs() {
+            const lastSubmitAt = getLastSubmitAt();
+            if (!lastSubmitAt) return 0;
+            const elapsed = Date.now() - lastSubmitAt;
+            return Math.max(0, COOLDOWN_MS - elapsed);
+        }
+
+        function updateCooldownUi() {
+            if (!leadSubmitBtn) return;
+            const remainingMs = getCooldownRemainingMs();
+            if (remainingMs > 0) {
+                leadSubmitBtn.disabled = true;
+                leadSubmitBtn.textContent = `Повтор через ${Math.ceil(remainingMs / 1000)}с`;
+            } else {
+                leadSubmitBtn.disabled = false;
+                leadSubmitBtn.textContent = SUBMIT_BUTTON_TEXT;
+                if (cooldownIntervalId) {
+                    clearInterval(cooldownIntervalId);
+                    cooldownIntervalId = null;
+                }
+            }
+        }
+
+        function startCooldownTicker() {
+            if (cooldownIntervalId) return;
+            cooldownIntervalId = setInterval(updateCooldownUi, 400);
+        }
+
+        function hasUrls(text) {
+            return /(https?:\/\/|www\.)/i.test(text);
+        }
+
+        function isEmailValid(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function isPhoneValid(phone) {
+            const digits = phone.replace(/\D/g, '');
+            return digits.length >= 10 && digits.length <= 15;
+        }
+
+        if (leadForm) {
+            leadForm.addEventListener('input', () => {
+                if (leadStatus && leadStatus.classList.contains('text-red-400')) {
+                    leadStatus.textContent = '';
+                    leadStatus.classList.remove('text-red-400');
+                    leadStatus.classList.add('text-gray-400');
+                }
+            });
+
+            leadForm.addEventListener('focusin', () => {
+                if (!leadFormStartedAt) {
+                    leadFormStartedAt = Date.now();
+                }
+            });
+
+            leadForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                updateCooldownUi();
+
+                if (isSendingLead) return;
+
+                if (getCooldownRemainingMs() > 0) {
+                    setLeadStatus('Слишком часто. Подождите немного перед повторной отправкой.', true);
+                    startCooldownTicker();
+                    return;
+                }
+
+                // Honeypot: bots often fill all fields, users do not see this field.
+                if (leadHoneypot && leadHoneypot.value.trim() !== '') {
+                    setLastSubmitAt(Date.now());
+                    updateCooldownUi();
+                    startCooldownTicker();
+                    return;
+                }
+
+                const filledForMs = Date.now() - leadFormStartedAt;
+                if (filledForMs < MIN_FILL_MS) {
+                    setLeadStatus('Форма отправлена слишком быстро. Проверьте поля и попробуйте снова.', true);
+                    return;
+                }
+
+                const name = leadName.value.trim();
+                const phone = leadPhone.value.trim();
+                const email = leadEmail.value.trim();
+                const message = leadMessage.value.trim();
+
+                if (name.length < 2 || name.length > 60) {
+                    setLeadStatus('Имя должно быть от 2 до 60 символов.', true);
+                    return;
+                }
+
+                if (!isPhoneValid(phone)) {
+                    setLeadStatus('Введите корректный номер телефона.', true);
+                    return;
+                }
+
+                if (!isEmailValid(email)) {
+                    setLeadStatus('Введите корректный email.', true);
+                    return;
+                }
+
+                if (message.length < 10 || message.length > 1000) {
+                    setLeadStatus('Сообщение должно быть от 10 до 1000 символов.', true);
+                    return;
+                }
+
+                if (hasUrls(message)) {
+                    setLeadStatus('Ссылки в сообщении временно не разрешены.', true);
+                    return;
+                }
+
+                try {
+                    isSendingLead = true;
+                    leadSubmitBtn.disabled = true;
+                    leadSubmitBtn.textContent = SUBMITTING_TEXT;
+                    setLeadStatus('Отправляем заявку...', false);
+
+                    const response = await fetch(LEAD_ENDPOINT, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name,
+                            phone,
+                            email,
+                            message,
+                            website: leadHoneypot ? leadHoneypot.value.trim() : '',
+                            ...collectLeadSourceMeta()
+                        })
+                    });
+
+                    const result = await response.json().catch(() => ({ ok: false }));
+                    if (!response.ok || !result.ok) {
+                        throw new Error(result.message || 'Не удалось отправить заявку.');
+                    }
+
+                    setLastSubmitAt(Date.now());
+                    updateCooldownUi();
+                    startCooldownTicker();
+                    setLeadStatus('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.', false);
+                    leadForm.reset();
+                    leadFormStartedAt = Date.now();
+                } catch (_error) {
+                    setLeadStatus('Не удалось отправить заявку. Попробуйте еще раз через минуту.', true);
+                    updateCooldownUi();
+                } finally {
+                    isSendingLead = false;
+                    if (getCooldownRemainingMs() <= 0) {
+                        leadSubmitBtn.disabled = false;
+                        leadSubmitBtn.textContent = SUBMIT_BUTTON_TEXT;
+                    }
+                }
+            });
+        }
+
+        updateCooldownUi();
+        if (getCooldownRemainingMs() > 0) {
+            startCooldownTicker();
+        }
 
              (function() {
     const navbarInner = document.getElementById('navbar-inner');
     if (!navbarInner) return;
 
-    const LARGE_HEIGHT = 300;    // начальная высота (px)
-    const COMPACT_HEIGHT = 80;    // высота в сжатом состоянии (px)
+    const LARGE_HEIGHT = 180;
+    const COMPACT_HEIGHT = 100;
     const SCROLL_TRIGGER = 50;    // после скролла 50px начинаем сжимать
 
     let isCompact = false;
@@ -649,9 +1189,11 @@
         const scrollY = window.scrollY;
         if (scrollY > SCROLL_TRIGGER && !isCompact) {
             navbarInner.style.height = COMPACT_HEIGHT + 'px';
+            navbarInner.classList.add('is-compact');
             isCompact = true;
         } else if (scrollY <= SCROLL_TRIGGER && isCompact) {
             navbarInner.style.height = LARGE_HEIGHT + 'px';
+            navbarInner.classList.remove('is-compact');
             isCompact = false;
         }
     }
@@ -671,6 +1213,89 @@
     // Устанавливаем начальное состояние (если страница открыта не в самом верху)
     updateNavbarHeight();
 })();
+
+        // Before / After slider
+        function setComparePosition(container, value) {
+            const normalized = Math.min(100, Math.max(0, value));
+            container.style.setProperty('--position', `${normalized}%`);
+        }
+
+        document.querySelectorAll('[data-compare]').forEach((container) => {
+            const range = container.querySelector('.before-after-range');
+            if (!range) return;
+
+            setComparePosition(container, Number(range.value));
+
+            range.addEventListener('input', (event) => {
+                setComparePosition(container, Number(event.target.value));
+            });
+
+            let isDragging = false;
+
+            const updateFromClientX = (clientX) => {
+                const rect = container.getBoundingClientRect();
+                const percent = ((clientX - rect.left) / rect.width) * 100;
+                const clamped = Math.min(100, Math.max(0, percent));
+                range.value = clamped.toFixed(1);
+                setComparePosition(container, clamped);
+            };
+
+            container.addEventListener('pointerdown', (event) => {
+                isDragging = true;
+                container.setPointerCapture(event.pointerId);
+                updateFromClientX(event.clientX);
+            });
+
+            container.addEventListener('pointermove', (event) => {
+                if (!isDragging) return;
+                updateFromClientX(event.clientX);
+            });
+
+            container.addEventListener('pointerup', () => {
+                isDragging = false;
+            });
+
+            container.addEventListener('pointerleave', () => {
+                isDragging = false;
+            });
+        });
+
+        // Lightbox для «Другие результаты»
+        const resultsLightbox = document.getElementById('results-lightbox');
+        const resultsLightboxImage = document.getElementById('results-lightbox-image');
+        const resultsLightboxCaption = document.getElementById('results-lightbox-caption');
+        const resultsLightboxClose = document.getElementById('results-lightbox-close');
+
+        const openResultsLightbox = (src, caption) => {
+            resultsLightboxImage.src = src;
+            resultsLightboxImage.alt = caption;
+            resultsLightboxCaption.textContent = caption;
+            resultsLightbox.classList.remove('hidden');
+            resultsLightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeResultsLightbox = () => {
+            resultsLightbox.classList.add('hidden');
+            resultsLightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        };
+
+        document.querySelectorAll('.result-photo').forEach((figure) => {
+            figure.addEventListener('click', () => {
+                openResultsLightbox(figure.dataset.resultSrc, figure.dataset.resultCaption);
+            });
+        });
+
+        resultsLightboxClose.addEventListener('click', closeResultsLightbox);
+        resultsLightbox.addEventListener('click', (event) => {
+            if (event.target === resultsLightbox) closeResultsLightbox();
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !resultsLightbox.classList.contains('hidden')) {
+                closeResultsLightbox();
+            }
+        });
     </script>
 </body>
 </html>

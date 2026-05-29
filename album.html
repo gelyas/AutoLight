@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Альбом проекта | AutoLight</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .album-card {
+            border: 1px solid rgba(212, 175, 55, 0.24);
+            background-color: #0a0a0a;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .album-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.55);
+            box-shadow: 0 16px 34px rgba(212, 175, 55, 0.16);
+        }
+
+        .lightbox-open {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="border-b border-neutral-800 bg-black/95 backdrop-blur-md sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html#projects" class="text-sm uppercase tracking-[0.2em] text-amber-400 hover:text-amber-300 transition-colors">← Назад к проектам</a>
+            <span class="text-xs text-neutral-500 uppercase tracking-[0.2em]">Альбом</span>
+        </div>
+    </header>
+
+    <main class="py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 md:mb-12">
+                <h1 id="project-title" class="text-4xl md:text-5xl font-bold mb-4 font-serif gold-gradient">Проект</h1>
+                <p id="project-subtitle" class="text-neutral-400 text-lg max-w-3xl">
+                    Фотографии по выбранному проекту.
+                </p>
+            </div>
+
+            <section id="album-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></section>
+        </div>
+    </main>
+
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden" aria-hidden="true">
+        <button id="lightbox-close" type="button" class="absolute top-5 right-5 w-11 h-11 border border-amber-500/70 text-amber-400 hover:text-amber-300 hover:border-amber-400 transition-colors text-2xl leading-none">
+            ×
+        </button>
+
+        <button id="lightbox-prev" type="button" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-11 h-11 border border-amber-500/70 text-amber-400 hover:text-amber-300 hover:border-amber-400 transition-colors text-2xl leading-none">
+            ‹
+        </button>
+
+        <button id="lightbox-next" type="button" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-11 h-11 border border-amber-500/70 text-amber-400 hover:text-amber-300 hover:border-amber-400 transition-colors text-2xl leading-none">
+            ›
+        </button>
+
+        <div class="h-full w-full flex items-center justify-center px-4 py-16">
+            <figure class="max-w-6xl w-full">
+                <img id="lightbox-image" src="" alt="" class="w-full max-h-[80vh] object-contain">
+                <figcaption class="text-center text-neutral-300 mt-4">
+                    <span id="lightbox-counter"></span>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <script src="assets/site-data.js"></script>
+    <script>
+        const projects = window.SiteData.projects;
+
+        const params = new URLSearchParams(window.location.search);
+        const projectId = params.get('project');
+        const selected = projects[projectId] || projects['nashi-raboty'];
+
+        document.getElementById('project-title').textContent = selected.title;
+        document.getElementById('project-subtitle').textContent = selected.subtitle;
+        document.title = `${selected.title} | Альбом проекта`;
+
+        const albumGrid = document.getElementById('album-grid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const lightboxCloseBtn = document.getElementById('lightbox-close');
+        const lightboxPrevBtn = document.getElementById('lightbox-prev');
+        const lightboxNextBtn = document.getElementById('lightbox-next');
+        let activeIndex = 0;
+
+        const renderLightbox = () => {
+            const total = selected.images.length;
+            const src = selected.images[activeIndex];
+            lightboxImage.src = src;
+            lightboxImage.alt = `${selected.title} — увеличенное фото ${activeIndex + 1}`;
+            lightboxCounter.textContent = `${activeIndex + 1} / ${total}`;
+        };
+
+        const openLightbox = (index) => {
+            activeIndex = index;
+            renderLightbox();
+            lightbox.classList.remove('hidden');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('lightbox-open');
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.add('hidden');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('lightbox-open');
+        };
+
+        const showNext = () => {
+            activeIndex = (activeIndex + 1) % selected.images.length;
+            renderLightbox();
+        };
+
+        const showPrev = () => {
+            activeIndex = (activeIndex - 1 + selected.images.length) % selected.images.length;
+            renderLightbox();
+        };
+
+        selected.images.forEach((src, index) => {
+            const card = document.createElement('article');
+            card.className = 'album-card overflow-hidden';
+            card.innerHTML = `
+                <button type="button" class="block w-full text-left" data-photo-index="${index}" aria-label="Открыть фото ${index + 1}">
+                    <img src="${src}" alt="${selected.title} — фото ${index + 1}" class="w-full h-64 object-cover" loading="lazy">
+                </button>
+            `;
+            albumGrid.appendChild(card);
+        });
+
+        albumGrid.addEventListener('click', (event) => {
+            const trigger = event.target.closest('[data-photo-index]');
+            if (!trigger) return;
+            openLightbox(Number(trigger.dataset.photoIndex));
+        });
+
+        lightboxCloseBtn.addEventListener('click', closeLightbox);
+        lightboxNextBtn.addEventListener('click', showNext);
+        lightboxPrevBtn.addEventListener('click', showPrev);
+
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (lightbox.classList.contains('hidden')) return;
+            if (event.key === 'Escape') closeLightbox();
+            if (event.key === 'ArrowRight') showNext();
+            if (event.key === 'ArrowLeft') showPrev();
+        });
+    </script>
+</body>
+</html>
