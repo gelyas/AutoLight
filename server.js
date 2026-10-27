@@ -16,7 +16,11 @@ const app = express();
 
 app.set('trust proxy', 1);
 
-app.use(helmet());
+// Временно отключаем строгие CSP-правила для локальной разработки, 
+// чтобы работали Tailwind, Lucide и Google Fonts
+app.use(helmet({
+  contentSecurityPolicy: false,
+}));
 
 const PORT = Number(process.env.PORT || 8080);
 
@@ -227,37 +231,14 @@ async function sendLeadToTelegram({ name, phone, email, message, ip, userAgent, 
   const sourceLines = buildSourceLines(source || {});
 
   const text = [
-
     '<b>Новая заявка AutoLight</b>',
-
     '',
-
     `<b>Имя:</b> ${escapeHtml(name)}`,
-
     `<b>Телефон:</b> ${escapeHtml(phone)}`,
-
     `<b>Email:</b> ${escapeHtml(email)}`,
-
     '',
-
     '<b>Сообщение:</b>',
-
     escapeHtml(message),
-
-    '',
-
-    '<b>Откуда заявка:</b>',
-
-    ...sourceLines,
-
-    '',
-
-    `<b>IP:</b> ${escapeHtml(ip)}`,
-
-    `<b>User-Agent:</b> ${escapeHtml(userAgent)}`,
-
-    `<b>Время:</b> ${new Date().toISOString()}`
-
   ].join('\n');
 
 
@@ -380,10 +361,9 @@ app.post('/api/lead', async (req, res) => {
 
   }
 
-  if (!isEmailValid(String(email).trim())) {
-
+  const emailTrimmed = String(email).trim();
+  if (emailTrimmed.length > 0 && !isEmailValid(emailTrimmed)) {
     return res.status(422).json({ ok: false, message: 'Некорректный email.' });
-
   }
 
   if (!isMessageValid(String(message).trim())) {

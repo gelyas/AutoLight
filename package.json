@@ -1,25 +1,14 @@
 {
-  "name": "autolight",
+  "name": "lightpower",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gelyas/AutoLight.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gelyas/AutoLight/issues"
-  },
-  "homepage": "https://github.com/gelyas/AutoLight#readme",
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.21.2",
-    "helmet": "^7.2.0"
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "helmet": "^8.3.0"
   }
 }
